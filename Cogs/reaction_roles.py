@@ -15,14 +15,11 @@ class ReactionRoles(commands.Cog):
         emoji = payload.emoji
         guild = self.bot.get_guild(payload.guild_id)
         member = guild.get_member(user_id)
-        print("asdasd")
 
         if (user_id == self.bot.user.id):
-            print("1")
             return
         
         if (message_id not in self.roles):
-            print("Message id not in array")
             return
         
         if (str(emoji) == "✅"):
@@ -30,11 +27,9 @@ class ReactionRoles(commands.Cog):
                 return
             role = guild.get_role(self.roles[message_id])
             if (role is None):
-                print("Role doesn't exits")
                 return
 
             if (member is not None):
-                print("Adding role")
                 await member.add_roles(role)
     
 
